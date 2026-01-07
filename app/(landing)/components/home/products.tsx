@@ -19,7 +19,7 @@ const productList = [
   {
     name: "SportsOn Product 3",
     category: "Running",
-    price: 119000,
+    price: 329000,
     imgUrl: "product-3.png",
   },
   {
@@ -36,7 +36,7 @@ const productList = [
   },
   {
     name: "SportsOn Product 6",
-    category: "Running",
+    category: "Basketball",
     price: 650000,
     imgUrl: "product-6.png",
   },
@@ -45,7 +45,6 @@ const productList = [
 const ProductSection = () => {
   return (
     <section id="products-section" className="container mx-auto mt-32">
-      \
       <h2 className="font-bold italic text-4xl text-center mb-11">
         <span className="text-primary">OUR</span>
         <span> PRODUCTS</span>
