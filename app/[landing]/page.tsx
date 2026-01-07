@@ -1,7 +1,11 @@
-import Image from "next/image";
+import HeroSection from "./components/home/hero";
+import CategoriesSection from "./components/home/categories";
+import ProductSection from "./components/home/product";
 
 export default function Home() {
-  return <main className="bg-primary">
-    <h1 className="font-extrabold">Halo</h1>
+  return <main>
+    <HeroSection/>
+    <CategoriesSection/>
+    <ProductSection/>
   </main>;
 }
