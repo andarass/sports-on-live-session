@@ -23,18 +23,18 @@ const ProductActions = () => {
           <span>{qty}</span>
         </div>
         <div className="flex flex-col">
-          <Button
+          <button
             className="border-b border-gray-500 cursor-pointer h-1/2 aspect-square flex justify-center items-center"
             onClick={() => setQty(qty + 1)}
           >
             <FiChevronUp />
-          </Button>
-          <Button
+          </button>
+          <button
             className="cursor-pointer h-1/2 aspect-square flex justify-center items-center"
             onClick={() => setQty(qty > 1 ? qty - 1 : qty)}
           >
             <FiChevronDown />
-          </Button>
+          </button>
         </div>
       </div>
       <Button className="px-20 w-full">
