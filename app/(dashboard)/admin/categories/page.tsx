@@ -15,8 +15,8 @@ import DeleteModal from "../../components/ui/delete-modal";
 
 const CategoryManagement = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [selectedCategory, setIsSelectedCategory] = useState<Category | null>(
-    null
+  const [selectedCategory, setSelectedCategory] = useState<Category | null>(
+    null,
   );
   const [categories, setCategories] = useState<Category[]>([]);
 
@@ -33,7 +33,7 @@ const CategoryManagement = () => {
   };
 
   const handleEdit = (category: Category) => {
-    setIsSelectedCategory(category);
+    setSelectedCategory(category);
     setIsModalOpen(true);
   };
 
@@ -42,28 +42,28 @@ const CategoryManagement = () => {
     setIsDeleteModalOpen(true);
   };
 
-  useEffect(() => {
-    fetchCategories();
-  }, []);
-
   const handleDeleteConfirm = async () => {
     if (!categoryToDeleteId) return;
     try {
       await deleteCategory(categoryToDeleteId);
       fetchCategories();
-      toast.success("Category deleted successfully!");
+      toast.success("Category deleted successfully");
       setIsDeleteModalOpen(false);
       setCategoryToDeleteId("");
     } catch (error) {
       console.error("Failed to delete category", error);
-      toast.error("Failed to deleted category");
+      toast.error("Failed to delete category");
     }
   };
 
   const handleCloseModal = () => {
     setIsModalOpen(false);
-    setIsSelectedCategory(null);
+    setSelectedCategory(null);
   };
+
+  useEffect(() => {
+    fetchCategories();
+  }, []);
 
   return (
     <div>

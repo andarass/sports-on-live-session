@@ -1,5 +1,3 @@
-"use client";
-
 import Button from "@/app/(landing)/components/ui/button";
 import Modal from "../ui/modal";
 import ImageUploadPreview from "../ui/image-upload-preview";
@@ -58,7 +56,7 @@ const ProductModal = ({
   const handleChange = (
     e: React.ChangeEvent<
       HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
-    >
+    >,
   ) => {
     const { id, value } = e.target;
     setFormData((prev) => ({ ...prev, [id]: value }));
@@ -84,7 +82,7 @@ const ProductModal = ({
         await createProduct(data);
       }
 
-      //Reset Form Data
+      // Reset Form Data
       setFormData({
         name: "",
         price: 0,
@@ -98,7 +96,7 @@ const ProductModal = ({
       toast.success(
         isEditMode
           ? "Product updated successfully!"
-          : "Product created successfully!"
+          : "Product created successfully!",
       );
 
       onSuccess?.();
@@ -106,10 +104,10 @@ const ProductModal = ({
     } catch (error) {
       console.error(
         isEditMode ? "Failed to update product" : "Failed to create product",
-        error
+        error,
       );
       toast.error(
-        isEditMode ? "Failed to update product" : "Failed to create product"
+        isEditMode ? "Failed to update product" : "Failed to create product",
       );
     } finally {
       setIsSubmitting(false);
@@ -120,10 +118,10 @@ const ProductModal = ({
     if (isEditMode && isOpen) {
       setFormData({
         name: product.name,
-        price: product.price,
-        stock: product.stock,
-        categoryId: product.category._id,
         description: product.description,
+        price: product.price,
+        categoryId: product.category._id,
+        stock: product.stock,
       });
       setImagePreview(product.imageUrl ? getImageUrl(product.imageUrl) : null);
     } else if (isOpen) {
@@ -175,14 +173,14 @@ const ProductModal = ({
             </div>
             <div className="grid grid-cols-2 gap-4">
               <div className="input-group-admin">
-                <label htmlFor="price">Price (IDR)</label>
+                <label htmlFor="productPrice">Price (IDR)</label>
                 <input
                   type="number"
                   id="price"
                   name="price"
+                  placeholder="e. g. 500000"
                   value={formData.price}
                   onChange={handleChange}
-                  placeholder="e. g. 500000"
                 />
               </div>
               <div className="input-group-admin">
@@ -191,9 +189,9 @@ const ProductModal = ({
                   type="number"
                   id="stock"
                   name="stock"
+                  placeholder="e. g. 100"
                   value={formData.stock}
                   onChange={handleChange}
-                  placeholder="e. g. 100"
                 />
               </div>
             </div>
@@ -222,10 +220,10 @@ const ProductModal = ({
           <textarea
             name="description"
             id="description"
-            value={formData.description}
-            onChange={handleChange}
             rows={7}
             placeholder="Product Details..."
+            value={formData.description}
+            onChange={handleChange}
           ></textarea>
         </div>
         <Button

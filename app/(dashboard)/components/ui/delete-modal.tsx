@@ -11,7 +11,7 @@ const DeleteModal = ({ isOpen, onClose, onConfirm }: TDeleteModalProps) => {
   return (
     <Modal isOpen={isOpen} onClose={onClose} title="Delete Item">
       <p>
-        Are you sure you want to delete this item? If you click delet, it will
+        Are you sure you want to delete this item ? If you click delete, it will
         permanently removed.
       </p>
       <div className="flex gap-5 mt-5">

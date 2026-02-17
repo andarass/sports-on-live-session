@@ -2,7 +2,7 @@ import { getImageUrl } from "@/app/lib/api";
 import { Category } from "@/app/types";
 import priceFormatter from "@/app/utils/price-formatter";
 import Image from "next/image";
-import { FiEdit, FiEdit2, FiTrash, FiTrash2 } from "react-icons/fi";
+import { FiEdit2, FiTrash2 } from "react-icons/fi";
 
 type TCategoryTableProps = {
   categories: Category[];
@@ -10,7 +10,7 @@ type TCategoryTableProps = {
   onDelete: (id: string) => void;
 };
 
-const ProductTable = ({
+const CategoryTable = ({
   categories,
   onEdit,
   onDelete,
@@ -68,4 +68,4 @@ const ProductTable = ({
   );
 };
 
-export default ProductTable;
+export default CategoryTable;

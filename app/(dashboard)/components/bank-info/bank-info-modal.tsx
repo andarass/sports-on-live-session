@@ -31,7 +31,7 @@ const BankInfoModal = ({
   const handleChange = (
     e: React.ChangeEvent<
       HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
-    >
+    >,
   ) => {
     const { id, value } = e.target;
     setFormData((prev) => ({ ...prev, [id]: value }));
@@ -57,17 +57,19 @@ const BankInfoModal = ({
       toast.success(
         isEditMode
           ? "Bank info updated successfully"
-          : "Bank info created succesfully"
+          : "Bank info created succesfully",
       );
     } catch (error) {
       console.error(
         isEditMode
           ? "Failed to update bank info"
           : "Failed to create bank info",
-        error
+        error,
       );
       toast.error(
-        isEditMode ? "Failed to update bank info" : "Failed to create bank info"
+        isEditMode
+          ? "Failed to update bank info"
+          : "Failed to create bank info",
       );
     } finally {
       setIsSubmitting(false);

@@ -30,8 +30,9 @@ const LoginPage = () => {
       }
     } catch (err: any) {
       setErrorMessage(
-        err.message || "Something went wrong, please try again later."
+        err.message || "Something went wrong, please try again later.",
       );
+      console.error("Login error", err);
     } finally {
       setIsLoading(false);
     }
@@ -64,7 +65,7 @@ const LoginPage = () => {
             id="email"
             name="email"
             placeholder="Please type your email"
-            className="rounded-lg"
+            className="rounded-lg!"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />

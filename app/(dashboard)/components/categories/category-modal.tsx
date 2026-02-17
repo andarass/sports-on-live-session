@@ -1,5 +1,3 @@
-"use client";
-
 import Button from "@/app/(landing)/components/ui/button";
 import Modal from "../ui/modal";
 import ImageUploadPreview from "../ui/image-upload-preview";
@@ -48,7 +46,7 @@ const CategoryModal = ({
         description: category.description,
       });
       setImagePreview(
-        category.imageUrl ? getImageUrl(category.imageUrl) : null
+        category.imageUrl ? getImageUrl(category.imageUrl) : null,
       );
     } else if (isOpen) {
       setFormData({
@@ -63,7 +61,7 @@ const CategoryModal = ({
   const handleChange = (
     e: React.ChangeEvent<
       HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
-    >
+    >,
   ) => {
     const { id, value } = e.target;
     setFormData((prev) => ({ ...prev, [id]: value }));
@@ -78,15 +76,17 @@ const CategoryModal = ({
       if (imageFile) {
         data.append("image", imageFile);
       }
+
       if (isEditMode) {
         await updateCategory(category._id, data);
       } else {
         await createCategory(data);
       }
+
       toast.success(
         isEditMode
-          ? "Category updates successfully!"
-          : "Category created successfully!"
+          ? "Category updated successfully"
+          : "Category created successfully",
       );
 
       setFormData({
@@ -100,10 +100,10 @@ const CategoryModal = ({
       onClose();
     } catch (error) {
       console.error(
-        isEditMode ? "Failed to update category" : "Failed to create category"
+        isEditMode ? "Failed to update category" : "Failed to create category",
       );
       toast.error(
-        isEditMode ? "Failed to update category" : "Failed to create category"
+        isEditMode ? "Failed to update category" : "Failed to create category",
       );
     } finally {
       setIsSubmitting(false);
@@ -140,15 +140,16 @@ const CategoryModal = ({
                 placeholder="e. g. Running"
               />
             </div>
+
             <div className="input-group-admin">
               <label htmlFor="description">Description</label>
               <textarea
                 name="description"
                 id="description"
-                value={formData.description}
-                onChange={handleChange}
                 rows={4}
                 placeholder="Category Details..."
+                value={formData.description}
+                onChange={handleChange}
               ></textarea>
             </div>
           </div>
@@ -159,7 +160,7 @@ const CategoryModal = ({
           onClick={handleSubmit}
           disabled={isSubmitting}
         >
-          {isEditMode ? "Update category" : "Create Category"}
+          {isEditMode ? "Update Category" : "Create Category"}
         </Button>
       </form>
     </Modal>

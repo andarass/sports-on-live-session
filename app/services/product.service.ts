@@ -21,7 +21,7 @@ export const createProduct = async (data: FormData): Promise<Product> => {
 
 export const updateProduct = async (
   id: string,
-  data: FormData
+  data: FormData,
 ): Promise<Product> => {
   return await fetchAPI<Product>(`/products/${id}`, {
     method: "PUT",

@@ -2,15 +2,15 @@ import { getImageUrl } from "@/app/lib/api";
 import { Product } from "@/app/types";
 import priceFormatter from "@/app/utils/price-formatter";
 import Image from "next/image";
-import { FiEdit, FiEdit2, FiTrash, FiTrash2 } from "react-icons/fi";
+import { FiEdit2, FiTrash2 } from "react-icons/fi";
 
 type TProductTableProps = {
   products: Product[];
-  onDelete?: (id:string) => void;
+  onDelete?: (id: string) => void;
   onEdit?: (product: Product) => void;
-}
+};
 
-const ProductTable = ({products, onDelete, onEdit}:TProductTableProps) => {
+const ProductTable = ({ products, onDelete, onEdit }: TProductTableProps) => {
   return (
     <div className="bg-white rounded-xl border border-gray-200">
       <table className="w-full text-left border-collapse">
@@ -45,7 +45,7 @@ const ProductTable = ({products, onDelete, onEdit}:TProductTableProps) => {
               </td>
               <td className="px-6 py-4 font-medium">
                 <div className="rounded-md bg-gray-200 px-2 py-1 w-fit">
-                  {data.category.name}
+                  {data?.category?.name}
                 </div>
               </td>
               <td className="px-6 py-4 font-medium">
@@ -53,10 +53,16 @@ const ProductTable = ({products, onDelete, onEdit}:TProductTableProps) => {
               </td>
               <td className="px-6 py-4 font-medium">{data.stock} units</td>
               <td className="px-6 py-7.5 flex items-center gap-3 text-gray-600">
-                <button onClick={() => onEdit?.(data)} className="cursor-pointer">
+                <button
+                  onClick={() => onEdit?.(data)}
+                  className="cursor-pointer"
+                >
                   <FiEdit2 size={20} />
                 </button>
-                <button onClick={() => onDelete?.(data._id)} className="cursor-pointer">
+                <button
+                  onClick={() => onDelete?.(data._id)}
+                  className="cursor-pointer"
+                >
                   <FiTrash2 size={20} />
                 </button>
               </td>

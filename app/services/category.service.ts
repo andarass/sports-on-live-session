@@ -17,7 +17,7 @@ export const createCategory = async (data: FormData): Promise<Category> => {
 
 export const updateCategory = async (
   id: string,
-  data: FormData
+  data: FormData,
 ): Promise<Category> => {
   return await fetchAPI<Category>(`/categories/${id}`, {
     method: "PUT",
@@ -29,10 +29,10 @@ export const updateCategory = async (
 };
 
 export const deleteCategory = async (id: string): Promise<void> => {
-    return await fetchAPI<void>(`/categories/${id}`, {
-      method: "DELETE",
-      headers: {
-        ...getAuthHeaders(),
-      },
-    });
-  };
+  return await fetchAPI<void>(`/categories/${id}`, {
+    method: "DELETE",
+    headers: {
+      ...getAuthHeaders(),
+    },
+  });
+};
