@@ -17,10 +17,10 @@ type TCategoriesProps = {
 
 const CategoriesSection = ({ categories }: TCategoriesProps) => {
   return (
-    <section id="category-section" className="container mx-auto pb-20">
+    <section id="category-section" className="container mx-auto pb-5">
       <div className="flex justify-between">
         <h2 className="font-bold text-2x1">Browse By Categories</h2>
-        <Link href="" className="flex gap-2 text-primary font-medium">
+        <Link href="/category" className="flex gap-2 text-primary font-medium">
           <span className="self-center">See All Categories</span>
           <FiArrowRight className="self-center" />
         </Link>

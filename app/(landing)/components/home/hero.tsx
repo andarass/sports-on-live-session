@@ -43,15 +43,15 @@ const HeroSection = () => {
           alt="sport on hero"
           width={700}
           height={950}
-          className="absolute -right-5 top-1/2 -translate-y-1/2"
+          className="absolute -right-5 top-1/2 -translate-y-1/2 z-10"
         />
       </div>
       <Image
         src="/images/img-ornament-hero.svg"
         alt="ornament hero"
-        width={420}
-        height={420}
-        className="absolute -right-50 top-1/2 -translate-y-1/2"
+        width={320}
+        height={320}
+        className="absolute -right-40 top-1/2 -translate-y-1/2 z-0"
       />
     </section>
   );
