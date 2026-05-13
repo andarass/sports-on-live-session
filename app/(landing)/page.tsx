@@ -12,7 +12,7 @@ export default async function Home() {
   ]);
 
   return (
-    <main>
+    <main className="min-h-screen w-full overflow-x-hidden">
       <HeroSection />
       <CategoriesSection categories={categories}/>
       <ProductSection products={products}/>
